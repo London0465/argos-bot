@@ -4,8 +4,8 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 from openai import OpenAI
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")
-PC_KEY = os.getenv("PINECONE_API_KEY")
+TOKEN = os.getenv("8506361405:AAENIpNpf7WQu-f971BuO1DCgcodvWAN_sE")
+PC_KEY = os.getenv("pcsk_3HBzas_Gjf2rDY2ADBFCocedTxxEj1hgFL4UaGuCKHdCPyBKpJH5q7JAMc2E6c16im9rMp")
 ASSISTANT = os.getenv("ASSISTANT_NAME", "argos")
 HOST = os.getenv("ASSISTANT_HOST", "https://prod-1-data.ke.pinecone.io")
 MODEL = os.getenv("MODEL", "claude-3-5-sonnet")
