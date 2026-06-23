@@ -1,4 +1,5 @@
 import os
+import asyncio
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 from openai import OpenAI
@@ -19,9 +20,11 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     await update.message.reply_text(resp.choices[0].message.content)
 
-app = ApplicationBuilder().token(TOKEN).build()
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
+async def main():
+    app = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
+    print("Argos Telegram -> Pinecone 24/7 iniciado")
+    await app.run_polling()
 
 if __name__ == "__main__":
-    print("Argos Telegram -> Pinecone 24/7 iniciado")
-    app.run_polling()
+    asyncio.run(main())
