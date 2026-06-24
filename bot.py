@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTyp
 from openai import OpenAI
 
 # --- KEYS PUESTAS DIRECTO ---
-TOKEN = "8506361405:AAENIpNpf7WQu-f971BuO1DCgcodvWAN_sE"
+TOKEN = "8885120933:AAFqyO0AMJrV_33fxUuzWbUva7qxqNYoWBE"
 GROQ_KEY = "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"
 
 client = OpenAI(api_key=GROQ_KEY, base_url="https://api.groq.com/openai/v1")
