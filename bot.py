@@ -1,14 +1,11 @@
-import os
 import asyncio
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 from openai import OpenAI
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")
-GROQ_KEY = os.getenv("GROQ_API_KEY")
-
-if not TOKEN or not GROQ_KEY:
-    raise ValueError("Faltan TELEGRAM_TOKEN o GROQ_API_KEY en Render")
+# --- KEYS PUESTAS DIRECTO ---
+TOKEN = "8506361405:AAENIpNpf7WQu-f971BuO1DCgcodvWAN_sE"
+GROQ_KEY = "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"
 
 client = OpenAI(api_key=GROQ_KEY, base_url="https://api.groq.com/openai/v1")
 
@@ -17,7 +14,7 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
         resp = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[
-                {"role": "system", "content": "Sos Argos. Cocreación, pensamiento y escritura con IA. Ricardo Moyano, Córdoba, Argentina. Investigador independiente en etología digital. Hablás de sus ideas. Si no se identifican como Ricardo, asumís que es otra persona."},
+                {"role": "system", "content": "Sos Argos. Cocreación, pensamiento y escritura con IA. Ricardo Moyano, Córdoba, Argentina."},
                 {"role": "user", "content": update.message.text}
             ],
             temperature=0.7,
